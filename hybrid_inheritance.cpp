@@ -1,0 +1,109 @@
+//Hybrid Inheritance
+#include<iostream>
+using namespace std;
+class A
+{
+    /*private :
+        int a;
+        void set_a()
+        {
+            cout<<"The value of a is 1";
+        }*/    
+    public :
+        int b;
+        void set_b()
+        {
+            cout<<"The value of b is 2"<<"\n";
+        }
+    /*protected :
+        int c;
+        void set_c()
+        {
+            cout<<"The value of c is 3";
+        }*/
+};
+class B : public A
+{
+    /*private :
+        int d;
+        void set_d()
+        {
+            cout<<"The value of d is 4";
+        }*/    
+    public :
+        int e;
+        void set_e()
+        {
+            cout<<"The value of e is 5"<<"\n";
+        }
+    /*protected :
+        int f;
+        void set_f()
+        {
+            cout<<"The value of f is 6";
+        }*/
+};
+
+class C : public A
+{
+    /*private :
+        int g;
+        void set_g()
+        {
+            cout<<"The value of g is 7";
+        }*/
+    public :
+        int h;
+        void set_h()
+        {
+            cout<<"The value of h is 8";
+        }
+    /*protected :
+        int i;
+        void set_i()
+        {
+            cout<<"The value of i is 9";
+        }*/
+};
+class D : public B, public C 
+{
+    /*private :
+        int j;
+        void set_j()
+        {
+            cout<<"The value of j is 10";
+        }*/
+    public :
+        int k;
+        void set_k()
+        {
+            cout<<"The value of k is 11";
+        }
+    /*protected :
+        int l;
+        void set_l()
+        {
+            cout<<"The value of l is 12";
+        }*/
+};
+int main()
+{
+    B obj1;
+    obj1.set_b();
+    
+    C obj2;
+    obj2.set_b();
+    
+    D obj3;
+    //obj3.set_b(); //calling function from class A    // D is not able to call A directly
+    obj3.set_e(); //calling function from class B
+    obj3.set_h(); //calling function from class C
+    
+    //obj.set_a();
+    //obj.set_c();
+    //obj.set_d();
+    //obj.set_f();
+    //obj.set_g();
+    //obj.set_i();
+    return 0;
+}
